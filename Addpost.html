@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Information</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="mypost.css">
+    <link rel="stylesheet" href="addpost.css" />
+
+
+</head>
+
+<body>
+
+    <div class="page-container">
+        <aside class="sidebar">
+           
+            <ul class="menu">
+                <a href="./Addpost.html">
+                    <li>Add New Post</li>
+                </a>
+
+                <a href="./post.html">
+                    <li> My Posts</li>
+                </a>
+                <a href="./products.html">
+                    <li>Products</li>
+                </a>
+                <li>Attributes</li>
+                <a href="./users.html"><li>Users</li></a>
+                <li>Roles</li>
+                <li>Media</li>
+                <li>Orders</li>
+                <li>Reports</li>
+            </ul>
+        </aside>
+        <section class="product-wrapper">
+
+            <div>
+                <h2 class="form-title">Create New Post</h2>
+
+                <form class="product-form" id="productForm">
+
+
+                    <div class="form-row">
+                        <label for="product-name">Title</label>
+                        <input type="text" id="product" placeholder="write your title" />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="category">Content</label>
+                        <input type="text" id="category" placeholder="Content" />
+                    </div>
+
+                    <div class="form-row">
+                        <label for="brand">Choose File</label>
+                        <input type="file" id="image" />
+
+                    </div>
+
+                    
+                    <div class="form-row">
+                        <button type="submit" class="add-btn">
+                            Add Post
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </div>
+    <script type="module" src="addproduct.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</body>
+
+</html>

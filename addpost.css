@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: #f9f6f6;
+  padding: 20px;
+}
+.product-wrapper {
+  width: 80%;
+  margin-left: 20%;
+}
+.product-wrapper > div {
+  background: #ffffff;
+  margin: 30px 19%;
+  padding: 30px;
+  border-radius: 15px;
+}
+.form-title {
+  font-size: 20px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+
+.form-row label {
+  width: 30%;
+  font-size: 15px;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+
+.form-row input,
+.form-row select {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e3e6ea;
+  background: #F9F9F6;
+  outline: none;
+  width: 70%;
+  
+}
+
+.form-row input::placeholder {
+  color: #121212c3;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* Toggle Switch */
+.toggle-row {
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.switch {
+  position: relative;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #e0e0e0;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider {
+  background: #e67e22;
+}
+
+.switch input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+  .product-wrapper {
+    width: 100%;
+    margin-left: 0px;
+  }
+   .product-wrapper > div {
+    margin-inline: 0px;
+  }
+
+  .toggle-row {
+    grid-column: span 1;
+  }
+}
+.add-btn {
+  background: #102937;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background:#167ebb;
+}

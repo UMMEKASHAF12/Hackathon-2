@@ -138,41 +138,14 @@ input:focus {
     font-size: 0.875rem;
     color: var(--text-muted);
 }
-
-/* Social Buttons */
-.social-login {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 0.6rem;
-    background-color: var(--input-bg);
-    border: 1px solid var(--border-color);
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.9rem;
-}
-
-.social-btn img {
-    width: 18px;
-}
-a {
+a{
     text-decoration: none;
-    color: var(--primary-blue);
-}
-a:hover {
-    text-decoration: underline;
-    color: white;
-}
+  color: #6366f1;
 
-
+}
+a :hover{
+color: #ffffff;
+}
 /* Mobile Responsiveness */
 @media (max-width: 480px) {
     .login-card {
