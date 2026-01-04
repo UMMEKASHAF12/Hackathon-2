@@ -30,7 +30,7 @@ async function signup(e) {
             options: {
                 data: {
                     name: sname.value,
-                    username: username.value,  // Save username in user_metadata
+                    username: sname.value,  
                 },
             },
         });
