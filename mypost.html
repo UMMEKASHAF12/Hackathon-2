@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
-  <link rel="stylesheet" href="mypost.css" />
+    <link rel="stylesheet" href="mypost.css" />
 
 
 </head>
@@ -18,29 +18,58 @@
 
     <div class="page-container">
         <aside class="sidebar">
-           
+
             <ul class="menu">
                 <a href="./Addpost.html">
                     <li>Add New Post</li>
                 </a>
 
-                <a href="./post.html">
+                <a href="./mypost.html">
                     <li> My Posts</li>
                 </a>
                 <a href="./products.html">
                     <li>Products</li>
                 </a>
                 <li>Attributes</li>
-                <a href="./users.html"><li>Users</li></a>
+                <a href="./users.html">
+                    <li>Users</li>
+                </a>
                 <li>Roles</li>
                 <li>Media</li>
                 <li>Orders</li>
                 <li>Reports</li>
             </ul>
         </aside>
+        <div class="products-container">
 
-        <script type="module" src="mypost.js"></script>
-   
+<table class="products-table">
+                <thead>
+                    <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody id="productsBody">
+                    <!-- add info using supabase -->
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="products.js"></script>
+
+</body>
+
+</html>
+
+<script type="module" src="mypost.js"></script>
+
 
 </body>
 
