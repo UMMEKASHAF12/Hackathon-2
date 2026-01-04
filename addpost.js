@@ -9,17 +9,27 @@ form.addEventListener("submit", async (e) => {
   const description = document.getElementById("description").value;
   const imageFile = document.getElementById("image").files[0];
 
-  
   if (!title || !description || !imageFile) {
     alert("Please fill all required fields");
     return;
   }
 
   try {
+    // Get current user
+    const { data: { user }, error: userError } = await supabase.auth.getUser();
+    if (userError) {
+      alert(userError.message);
+      return;
+    }
+
+    const user_id = user.id;
+    const username = user.user_metadata?.username || "Anonymous"; // username fetch
+
     const fileName = `${Date.now()}-${imageFile.name}`;
 
+    // Upload image
     const { error: uploadError } = await supabase.storage
-      .from("Posts") 
+      .from("Posts")
       .upload(fileName, imageFile);
 
     if (uploadError) {
@@ -27,19 +37,26 @@ form.addEventListener("submit", async (e) => {
       return;
     }
 
-    
-    const { data } = supabase.storage
+    // Get public URL
+    const { data: urlData, error: urlError } = supabase.storage
       .from("Posts")
       .getPublicUrl(fileName);
 
-    const img_url = data.publicUrl;
+    if (urlError) {
+      alert(urlError.message);
+      return;
+    }
 
-   
+    const img_url = urlData.publicUrl;
+
+    // Insert post
     const { error } = await supabase.from("Posts").insert([
       {
-        title: title,
-        description: description,
-        img_url: img_url,
+        title,
+        description,
+        img_url,
+        user_id,
+        username
       },
     ]);
 
@@ -56,3 +73,4 @@ form.addEventListener("submit", async (e) => {
     alert("Something went wrong");
   }
 });
+

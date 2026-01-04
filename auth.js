@@ -23,13 +23,13 @@ async function signup(e) {
             return;
         }
 
-        // Supabase signup from Docs --- Create a user
+        // ✅ Single signup call
         const { data, error } = await supabase.auth.signUp({
             email: semail.value,
             password: spassword.value,
             options: {
                 data: {
-                    name: sname.value
+                    username: sname.value  // Save username in user_metadata
                 }
             }
         });
@@ -42,11 +42,11 @@ async function signup(e) {
         alert("Signup successful!");
         console.log(data.user);
 
-        
-    window.location.href = "home.html";  
+        window.location.href = "home.html";
 
     } catch (err) {
         console.log(err);
+        alert("Something went wrong");
     }
 }
 
