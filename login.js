@@ -31,7 +31,7 @@ form.addEventListener("submit", async (e) => {
         alert("Login successful!");
         console.log(data.user);
 
-        window.location.href = "index.html";
+        window.location.href = "home.html";
 
     } catch (err) {
         console.log(err);

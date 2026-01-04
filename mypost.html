@@ -27,22 +27,13 @@
                 <a href="./mypost.html">
                     <li> My Posts</li>
                 </a>
-                <a href="./products.html">
-                    <li>Products</li>
-                </a>
-                <li>Attributes</li>
-                <a href="./users.html">
-                    <li>Users</li>
-                </a>
-                <li>Roles</li>
-                <li>Media</li>
-                <li>Orders</li>
-                <li>Reports</li>
+
+
             </ul>
         </aside>
         <div class="products-container">
 
-<table class="products-table">
+            <table class="products-table">
                 <thead>
                     <tr>
                         <th>Post Image</th>
@@ -59,6 +50,25 @@
         </div>
 
     </div>
+
+    <!-- Edit Post Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Edit Post</h2>
+            <input type="text" id="editTitle" placeholder="Title" />
+            <textarea id="editDescription" placeholder="Description"></textarea>
+
+            <!-- Styled file input -->
+            <label class="custom-file-upload">
+                <input type="file" id="editImage" accept="image/*" />
+                Choose Image
+            </label>
+
+            <button id="saveEdit">Update Post</button>
+        </div>
+    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>

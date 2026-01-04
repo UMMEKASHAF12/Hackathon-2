@@ -1,3 +1,4 @@
+/* Reset & body */
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +31,8 @@ body {
   list-style: none;
   padding: 12px;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: 0.3s;
 }
 
 .menu li:hover {
@@ -48,7 +50,7 @@ a {
 
 /* CONTENT AREA */
 .products-container {
-  margin-left: 20%;      /* sidebar ke baad */
+  margin-left: 20%;
   width: 80%;
   padding: 40px;
   display: flex;
@@ -60,6 +62,9 @@ a {
   width: 90%;
   border-collapse: separate;
   border-spacing: 0 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .products-table thead tr {
@@ -76,67 +81,178 @@ a {
 .products-table tbody tr {
   background: #ffffff;
   border-radius: 12px;
+  transition: 0.3s;
+}
+
+.products-table tbody tr:hover {
+  background: #f0f4ff;
+  transform: scale(1.01);
 }
 
 .products-table td {
   padding: 16px;
   text-align: center;
+  vertical-align: middle;
 }
 
-/* IMAGE */
-.product-img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border-radius: 10px;
-  background: #fff;
-  padding: 6px;
-  display: block;
-  margin: 0 auto;
-}
-/* Button common styles */
-.productsBody button {
-  padding: 6px 12px;
-  margin: 2px;
+
+
+/* TABLE BUTTONS */
+#productsBody button {
+  padding: 6px 14px;
+  margin: 0 2px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+/* Edit button (green) */
+#productsBody button:nth-child(1) {
+  background-color: #22c55e;
+  color: white;
+}
+
+#productsBody button:nth-child(1):hover {
+  background-color: #16a34a;
+  transform: scale(1.05);
+}
+
+/* Delete button (red) */
+#productsBody button:nth-child(2) {
+  background-color: #ef4444;
+  color: white;
+}
+
+#productsBody button:nth-child(2):hover {
+  background-color: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* MODAL OVERLAY */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* MODAL CONTENT */
+.modal-content {
+  background-color: #ffffff;
+  margin: 8% auto;
+  padding: 30px 20px;
+  border-radius: 16px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #555;
   transition: 0.3s;
 }
 
-/* Edit button */
-.productsBody button:nth-child(1) {
-  background-color: #4CAF50; /* Green */
-  color: white;
+.close:hover {
+  color: #000;
+  transform: scale(1.2);
 }
 
-.productsBody button:nth-child(1):hover {
-  background-color: #45a049;
-  transform: scale(1.05);
+/* INPUT FIELDS */
+#editTitle, #editDescription {
+  width: 100%;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
-/* Delete button */
-.productsBody button:nth-child(2) {
-  background-color: #f44336; /* Red */
-  color: white;
+#editTitle:focus, #editDescription:focus {
+  border-color: #4F46E5;
+  outline: none;
+  box-shadow: 0 0 6px rgba(79,70,229,0.4);
 }
 
-.productsBody button:nth-child(2):hover {
-  background-color: #da190b;
-  transform: scale(1.05);
+/* CUSTOM FILE INPUT */
+#editImage {
+  display: none; /* hide default */
 }
 
-/* Optional: make buttons smaller on mobile */
-@media (max-width: 600px) {
-  .productsBody button {
-    padding: 4px 8px;
-    font-size: 12px;
-  }
-}
-
-/* Image in table cell */
-.product-img {
+.file-label {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #4F46E5;
+  color: #fff;
+  font-weight: 500;
   border-radius: 8px;
-  object-fit: cover;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.file-label:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+
+.file-name {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: #555;
+}
+
+/* SAVE BUTTON */
+#saveEdit {
+  width: 100%;
+  background-color: #4F46E5;
+  color: white;
+  padding: 10px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+#saveEdit:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+/* Table product image */
+.product-img {
+  width: 100px;           /* width in table cell */
+  height: 100px;          /* square image */
+  object-fit: cover;      /* maintain aspect ratio, crop if needed */
+  border-radius: 12px;    /* rounded corners */
+padding: 4px;           /* optional padding */
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
