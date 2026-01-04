@@ -7,18 +7,13 @@
 
 body {
   background: #f9f6f6;
-  padding: 20px;
 }
-.sidebar {
-  width: 20%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #e67e22;
-  padding: 30px 20px;
-  box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+
+/* PAGE WRAPPER */
+.page-container {
+  display: flex;
 }
+
 /* SIDEBAR */
 .sidebar {
   width: 20%;
@@ -29,12 +24,6 @@ body {
   position: fixed;
   left: 0;
   top: 0;
-}
-
-.logo {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 25px;
 }
 
 .menu li {
@@ -51,7 +40,57 @@ body {
 .menu .active {
   background: rgba(255, 255, 255, 0.35);
 }
+
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* CONTENT AREA */
+.products-container {
+  margin-left: 20%;      /* sidebar ke baad */
+  width: 80%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+/* TABLE */
+.products-table {
+  width: 90%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.products-table thead tr {
+  background: #f3f3f3;
+}
+
+.products-table th {
+  padding: 16px;
+  color: #4F46E5;
+  font-weight: 600;
+  text-align: center;
+}
+
+.products-table tbody tr {
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.products-table td {
+  padding: 16px;
+  text-align: center;
+}
+
+/* IMAGE */
+.product-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  display: block;
+  margin: 0 auto;
 }
