@@ -1,0 +1,39 @@
+ /* Custom 3D & Glass Effects */
+        .glass-navbar {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-link-3d {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .nav-link-3d:hover {
+            transform: translateY(-3px) scale(1.05);
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-3d {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-3d:active {
+            transform: scale(0.92) translateY(2px);
+        }
+
+        .dropdown-3d {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }

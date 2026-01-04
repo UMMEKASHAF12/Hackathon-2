@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body class="p-6">
+
+    <nav class="glass-navbar sticky top-4 rounded-2xl max-w-7xl mx-auto px-6 py-3 z-50"
+        x-data="{ mobileMenuOpen: false, profileOpen: false }">
+
+        <div class="flex justify-between items-center">
+
+            <div class="flex-shrink-0 flex items-center">
+                <div
+                    class="bg-indigo-600 p-2 rounded-lg shadow-lg rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <span class="text-white font-bold tracking-tighter">B</span>
+                </div>
+                <span class="ml-3 text-xl font-extrabold text-gray-800 tracking-tight">
+                    MODERN<span class="text-indigo-600">UI</span>
+                </span>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#"
+                    class="nav-link-3d text-gray-600 hover:text-indigo-600 font-semibold text-sm uppercase tracking-wider">Explore</a>
+                <a href="#"
+                    class="nav-link-3d text-gray-600 hover:text-indigo-600 font-semibold text-sm uppercase tracking-wider">Features</a>
+                <a href="#"
+                    class="nav-link-3d text-gray-600 hover:text-indigo-600 font-semibold text-sm uppercase tracking-wider">Community</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+
+                <div class="relative">
+                    <button @click="profileOpen = !profileOpen"
+                        class="profile-3d block h-10 w-10 rounded-full overflow-hidden border-2 border-white focus:outline-none">
+
+                        
+                        <div id="profileLetter"
+                            class="h-full w-full flex items-center justify-center bg-indigo-600 text-white font-bold">
+                            U
+                        </div>
+
+                    </button>
+
+                    <div x-show="profileOpen" @click.away="profileOpen = false"
+                        x-transition:enter="transition ease-out duration-200"
+                        x-transition:enter-start="opacity-0 translate-y-4 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        class="dropdown-3d absolute right-0 mt-4 w-56 rounded-2xl bg-white p-2 z-50 origin-top-right">
+
+                        <div class="p-3 border-b border-gray-50 flex items-center">
+                            <div
+                                class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 mr-3">
+                                👤
+                            </div>
+                            <div>
+                               
+                                <p id="profileName" class="text-sm font-bold text-gray-800">
+                                    User
+                                </p>
+                                <p class="text-xs text-gray-400">Member</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-2 space-y-1">
+                            <a href="#"
+                                class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-indigo-50 hover:text-indigo-600 rounded-xl transition-colors">
+                                <span class="ml-3">Account Settings</span>
+                            </a>
+                            <a onclick="logout()"
+                                class="flex items-center px-3 py-2 text-sm text-red-500 hover:bg-red-50 rounded-xl transition-colors cursor-pointer">
+                                <span class="ml-3">Sign Out</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- JS -->
+    <script type="module" src="home.js"></script>
+
+</body>
+
+</html>
