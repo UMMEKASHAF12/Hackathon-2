@@ -45,7 +45,7 @@ async function loadPosts() {
         <h3>${post.title}</h3>
         <p>${post.description}</p>
         <br>
-        <p>by ummekashafs</p>
+        <p>${post.username}</p>
       </div>
     `;
 

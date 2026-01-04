@@ -94,3 +94,49 @@ a {
   display: block;
   margin: 0 auto;
 }
+/* Button common styles */
+.productsBody button {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+/* Edit button */
+.productsBody button:nth-child(1) {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+.productsBody button:nth-child(1):hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+/* Delete button */
+.productsBody button:nth-child(2) {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.productsBody button:nth-child(2):hover {
+  background-color: #da190b;
+  transform: scale(1.05);
+}
+
+/* Optional: make buttons smaller on mobile */
+@media (max-width: 600px) {
+  .productsBody button {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+/* Image in table cell */
+.product-img {
+  border-radius: 8px;
+  object-fit: cover;
+}

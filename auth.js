@@ -23,16 +23,28 @@ async function signup(e) {
             return;
         }
 
-        // ✅ Single signup call
+        //  Correct variables used here
         const { data, error } = await supabase.auth.signUp({
             email: semail.value,
             password: spassword.value,
             options: {
                 data: {
-                    username: sname.value  // Save username in user_metadata
-                }
-            }
+                    name: sname.value,
+                    username: username.value,  // Save username in user_metadata
+                },
+            },
         });
+
+        // Supabase signup from Docs --- Create a user
+        // const { data, error } = await supabase.auth.signUp({
+        //     email: semail.value,
+        //     password: spassword.value,
+        //     options: {
+        //         data: {
+        //             name: sname.value
+        //         }
+        //     }
+        // });
 
         if (error) {
             alert(error.message);
@@ -42,11 +54,11 @@ async function signup(e) {
         alert("Signup successful!");
         console.log(data.user);
 
-        window.location.href = "home.html";
+        
+    window.location.href = "home.html";  
 
     } catch (err) {
         console.log(err);
-        alert("Something went wrong");
     }
 }
 
